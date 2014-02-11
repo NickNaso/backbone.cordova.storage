@@ -298,9 +298,10 @@ Backbone.sync = function(method, model, options){
 			SQLiteStore.update(model, success, error, options);
 		break;
 		case "delete":
-			if(model.isNew())
+			if(model.isNew()){
 				option.success();
 				return false;
+			}	
 			SQLiteStore.destroy(model, success, error, options);
 		break;
 		default:
